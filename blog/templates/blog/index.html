@@ -1,0 +1,57 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block css_files %} <link rel="stylesheet" href="{% static 'blog/css/style.css' %}"> {% endblock %} 
+
+{% block title %} Anasayfa {% endblock %} 
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        {% include 'partials/_categories.html' %}
+    </div>
+    <div class="col-md-9">
+    {% for blog in blogs %}
+    <div class="row py-3 mb-4 " x-data="{ open{{forloop.counter}}: false }" style="background-color: rgb(169, 177, 176); border-radius: 6px;">
+        <div class="col-11 ps-4">
+            <h6 class="a">{{ blog.title }}</h6>
+        </div>
+        <div class="col-1">
+            <div>
+                <a href="#" @click="open{{forloop.counter}} = true" class="a">
+                    <svg x-show="open{{forloop.counter}} == false" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                    <!--  -->
+                    <svg x-show="open{{forloop.counter}} == true" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                        <path
+                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <!--  -->
+        <div class="box" @click.outside="open{{forloop.counter}} = false" x-show="open{{forloop.counter}}">
+            <div class="card mb-3" >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-3">{{ blog.title|title }}</h5>
+                            <img class="img-fluid me-3 mb-3" src="{{ blog.image.url }}" style="float: left;">
+                            <p class="card-text">
+                                {{ blog.description|striptags|slice:"0:250"|safe }}
+                            </p>
+                            <a href="{% url 'blog_details' blog.slug %}"><button class="btn btn-info float-md-end">incele</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
