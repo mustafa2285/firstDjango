@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 27 Nis 2022, 17:46:03
+-- Üretim Zamanı: 27 Nis 2022, 17:51:14
 -- Sunucu sürümü: 8.0.27
 -- PHP Sürümü: 7.4.26
 
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$320000$aYN55A4wklQz5Tb0ySZwlp$uxxvWi9UFSDzZtvtKz0TcgXbYGyKPjKNyCv5RD6mZ5E=', '2022-04-27 16:14:32.740895', 1, 'admin', '', '', 'm@gmail.com', 1, 1, '2022-04-26 14:13:23.005953'),
+(1, 'pbkdf2_sha256$320000$aYN55A4wklQz5Tb0ySZwlp$uxxvWi9UFSDzZtvtKz0TcgXbYGyKPjKNyCv5RD6mZ5E=', '2022-04-27 16:14:32.000000', 1, 'admin', 'mustafa', 'genç', 'm@gmail.com', 1, 1, '2022-04-26 14:13:23.000000'),
 (2, 'pbkdf2_sha256$320000$0riKIlIUJHUyWnfMyixaTi$NdEkDPUVtCs2CUDE9RIhCd6uzXyVkxRwfHGwtsJdhNM=', '2022-04-27 15:08:58.516217', 0, 'mustafa ', 'mustafa', 'genç', 'm2@gmail.coml', 0, 1, '2022-04-27 09:37:30.523200'),
 (3, 'pbkdf2_sha256$320000$FkOqnezmNFpffnCMuRqbR2$oguBe0bKvbdrLk7/DUBo3RbiE1bSiUU+6zol+IlWOP0=', NULL, 0, 'ali', 'ali', 'veli', 'm3@gmail.com', 0, 1, '2022-04-27 14:02:51.801650');
 
@@ -312,7 +312,8 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (17, '2022-04-27 17:27:52.554968', '1', 'python', 2, '[{\"changed\": {\"fields\": [\"Image\"]}}]', 2, 1),
 (18, '2022-04-27 17:30:16.411089', '6', 'Veritabanı', 1, '[{\"added\": {}}]', 2, 1),
 (19, '2022-04-27 17:31:26.602697', '7', 'Laravel', 1, '[{\"added\": {}}]', 2, 1),
-(20, '2022-04-27 17:31:44.010154', '6', 'Veritabanı', 2, '[{\"changed\": {\"fields\": [\"Is active\"]}}]', 2, 1);
+(20, '2022-04-27 17:31:44.010154', '6', 'Veritabanı', 2, '[{\"changed\": {\"fields\": [\"Is active\"]}}]', 2, 1),
+(21, '2022-04-27 17:49:55.739123', '1', 'admin', 2, '[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]', 6, 1);
 
 -- --------------------------------------------------------
 
